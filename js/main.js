@@ -241,11 +241,14 @@ function applyTranslations(lang) {
   const optGeneral = document.querySelectorAll("option[value='general']");
   optGeneral.forEach(o => { o.textContent = dict.enrollModalOptGeneral || "Individual Program"; });
 
-  const optOffline = document.querySelectorAll("option[value='offline']");
-  optOffline.forEach(o => { o.textContent = dict.formFormatOptOffline || "On-campus (Almaty)"; });
-
-  const optOnline = document.querySelectorAll("option[value='online']");
-  optOnline.forEach(o => { o.textContent = dict.formFormatOptOnline || "Online"; });
+  // 5. Update Page Title and Meta Description for SEO
+  if (dict.pageTitle) {
+    document.title = dict.pageTitle;
+  }
+  if (dict.pageDescription) {
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute("content", dict.pageDescription);
+  }
 }
 
 function updateLanguageUI(lang) {

@@ -3,19 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>STANFORD — Educational Center</title>
-  <meta name="description" content="Stanford Educational Center: IELTS preparation, medical & technical university admissions. English, Biology, Chemistry, Mathematics." />
+  <title>Учебный центр STANFORD в Бекабаде | Курсы английского языка, IELTS, математики</title>
+  <meta name="description" content="Учебный центр STANFORD в Бекабаде. Качественные курсы английского языка, подготовка к IELTS, углубленная математика, биология и химия для поступления в вузы. Бесплатный пробный урок!" />
+  <meta name="keywords" content="учебный центр бекабад, курсы бекабад, курсы в бекабаде, o'quv markaz bekobod, bekobod o'quv kurslari, bekobod ingliz tili, ielts bekobod, stanford bekobod, stanford o'quv markazi, репетиторы бекабад, учебный центр в бекабаде, stanford academy bekabad" />
+  <meta name="author" content="STANFORD Educational Center" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <link rel="canonical" href="https://stanford-edu.uz/" />
+
+  <!-- Geo & Local SEO Meta Tags (Bekabad, Tashkent Region, Uzbekistan) -->
+  <meta name="geo.region" content="UZ-TO" />
+  <meta name="geo.placename" content="Bekabad" />
+  <meta name="geo.position" content="40.2197;69.2633" />
+  <meta name="ICBM" content="40.2197, 69.2633" />
+
+  <!-- OpenGraph / Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://stanford-edu.uz/" />
+  <meta property="og:title" content="Учебный центр STANFORD в Бекабаде | Курсы IELTS и поступление в вузы" />
+  <meta property="og:description" content="Премиальный учебный центр в Бекабаде: английский язык, IELTS, математика, биология и химия." />
+  <meta property="og:site_name" content="STANFORD Educational Center Bekabad" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:locale:alternate" content="uz_UZ" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Учебный центр STANFORD в Бекабаде" />
+  <meta name="twitter:description" content="Курсы английского языка, IELTS, математики, биологии и химии в Бекабаде." />
+
+  <!-- Schema.org Structured Data (JSON-LD) for Local Business & Educational Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "STANFORD Educational Center",
+    "alternateName": [
+      "Учебный центр STANFORD Бекабад",
+      "STANFORD o'quv markazi Bekobod",
+      "Stanford Bekabad"
+    ],
+    "url": "https://stanford-edu.uz/",
+    "telephone": "+998908402040",
+    "email": "info@stanford-edu.uz",
+    "description": "Ведущий учебный центр в Бекабаде. Подготовка к IELTS, углубленный английский язык, биология, химия и профильная математика для поступления в вузы.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Бекабад (Bekobod)",
+      "addressRegion": "Ташкентская область (Toshkent viloyati)",
+      "addressCountry": "UZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 40.2197,
+      "longitude": 69.2633
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "08:30",
+      "closes": "21:00"
+    }
+  }
+  </script>
   
-  <!-- Anti-flicker Theme & Language Initialization -->
+  <!-- Anti-flicker Theme & Language Initialization (Auto-detect System Theme & Language) -->
   <script>
     (function() {
-      // 1. Theme initialization
-      const savedTheme = localStorage.getItem('stanford_theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
+      // 1. Theme initialization: Respect saved preference, or auto-detect system OS theme
+      try {
+        const savedTheme = localStorage.getItem('stanford_theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
 
       // 2. Language initialization (Device system language with fallback to 'en')
       let lang = localStorage.getItem('stanford_lang');
@@ -71,21 +133,6 @@
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- Theme Auto-Detection (System Scheme & Saved Preference) -->
-  <script>
-    (function() {
-      try {
-        const saved = localStorage.getItem("stanford_theme");
-        const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (saved === "dark" || (!saved && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
-      } catch (e) {}
-    })();
-  </script>
 </head>
 
 <body class="bg-[#FAFAFA] dark:bg-[#0A0A0A] text-neutral-900 dark:text-white selection:bg-[#FF6B00]/30 selection:text-white font-sans antialiased overflow-x-hidden transition-colors duration-300">
@@ -1122,8 +1169,8 @@
                 </div>
                 <div>
                   <div class="text-xs text-neutral-500 uppercase tracking-wider font-semibold" data-i18n="contactAddressLabel">Адрес учебного центра</div>
-                  <div class="text-sm font-semibold text-neutral-900 dark:text-white mt-0.5" data-i18n="contactAddressVal">г. Алматы, проспект Достык 89, БЦ «Stanford Plaza», 4 этаж</div>
-                  <div class="text-xs text-[#D97706] dark:text-[#FFB800] mt-1 font-medium" data-i18n="contactMetroHint">Рядом станция метро «Абая» (5 мин пешком)</div>
+                  <div class="text-sm font-semibold text-neutral-900 dark:text-white mt-0.5" data-i18n="contactAddressVal">г. Бекабад, Ташкентская область, Узбекистан</div>
+                  <div class="text-xs text-[#D97706] dark:text-[#FFB800] mt-1 font-medium" data-i18n="contactMetroHint">Удобное расположение в центре города Бекабад</div>
                 </div>
               </div>
 
@@ -1150,7 +1197,7 @@
                 </div>
                 <div>
                   <div class="text-xs text-neutral-500 uppercase tracking-wider font-semibold" data-i18n="contactEmailLabel">Электронная почта</div>
-                  <div class="text-sm font-semibold text-neutral-900 dark:text-white mt-0.5">admissions@stanford-edu.kz</div>
+                  <div class="text-sm font-semibold text-neutral-900 dark:text-white mt-0.5">info@stanford-edu.uz</div>
                 </div>
               </div>
             </div>
@@ -1304,11 +1351,11 @@
                 <!-- Map Coordinates & Route buttons -->
                 <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-xs">
                   <div class="bg-white/90 dark:bg-black/80 px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 font-mono text-[11px] backdrop-blur-md shadow-xs">
-                    43.238949° N, 76.945465° E
+                    40.2197° N, 69.2633° E (Bekabad)
                   </div>
                   <div class="flex gap-2">
                     <a 
-                      href="https://maps.google.com/?q=Almaty+Dostyk+89" 
+                      href="https://maps.google.com/?q=Bekabad+Uzbekistan" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       class="px-3 py-1.5 rounded-lg bg-white dark:bg-[#141414] border border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-white hover:border-[#FF6B00] hover:text-[#FF6B00] transition-colors text-xs font-semibold backdrop-blur-md flex items-center gap-1 shadow-xs"

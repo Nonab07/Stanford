@@ -7,6 +7,8 @@ const translations = {
   ru: {
     // Header & Navigation
     centerSubtitle: "Учебный центр",
+    pageTitle: "Учебный центр STANFORD в Бекабаде | Курсы английского языка, IELTS, математики",
+    pageDescription: "Ведущий учебный центр STANFORD в Бекабаде. Качественные курсы английского языка, подготовка к IELTS, углубленная математика, биология и химия для поступления в вузы.",
     navHome: "Главная",
     navAbout: "О нас",
     navCourses: "Курсы",
@@ -143,11 +145,11 @@ const translations = {
 
     // Contacts
     contactsBadge: "СВЯЗЬ С НАМИ",
-    contactsTitle: "Контакты и локация <span class=\"text-gradient-orange\">Stanford</span>",
-    contactsDesc: "Приглашаем вас на персональную консультацию и тестирование текущего уровня.",
+    contactsTitle: "Контакты и локация в Бекабаде <span class=\"text-gradient-orange\">Stanford</span>",
+    contactsDesc: "Приглашаем вас на персональную консультацию и тестирование текущего уровня в учебном центре Stanford в Бекабаде.",
     contactAddressLabel: "Адрес учебного центра",
-    contactAddressVal: "г. Алматы, проспект Достык 89, БЦ «Stanford Plaza», 4 этаж",
-    contactMetroHint: "Рядом станция метро «Абая» (5 мин пешком)",
+    contactAddressVal: "г. Бекабад, Ташкентская область, Узбекистан",
+    contactMetroHint: "Удобное расположение в центре города Бекабад",
     contactPhoneLabel: "Прямой телефон (звонок бесплатный)",
     contactHours: "Ежедневно: 08:30 – 21:00",
     contactEmailLabel: "Электронная почта",
@@ -205,7 +207,7 @@ const translations = {
     resultModalCloseBtn: "Закрыть",
 
     // Footer
-    footerSubtitle: "Академический учебный центр",
+    footerSubtitle: "Учебный центр в Бекабаде",
     footerCopy: "© 2026 Учебный центр «STANFORD». Все права защищены.",
     footerPrivacy: "Политика конфиденциальности",
     footerTerms: "Договор оферты",
@@ -215,6 +217,8 @@ const translations = {
   en: {
     // Header & Navigation
     centerSubtitle: "Educational Center",
+    pageTitle: "STANFORD Educational Center in Bekabad | English, IELTS, Math Courses",
+    pageDescription: "Leading educational center STANFORD in Bekabad. High-yield IELTS preparation, advanced English, Mathematics, Biology & Chemistry courses.",
     navHome: "Home",
     navAbout: "About",
     navCourses: "Courses",
@@ -351,11 +355,11 @@ const translations = {
 
     // Contacts
     contactsBadge: "CONNECT WITH US",
-    contactsTitle: "Contacts & Campus <span class=\"text-gradient-orange\">Location</span>",
-    contactsDesc: "We invite you for an academic consultation and diagnostic level assessment.",
+    contactsTitle: "Bekabad Center <span class=\"text-gradient-orange\">Location</span>",
+    contactsDesc: "We invite you for an academic consultation and diagnostic placement evaluation at Stanford Center in Bekabad.",
     contactAddressLabel: "Campus Address",
-    contactAddressVal: "Almaty, Dostyk Ave 89, 'Stanford Plaza' BC, 4th Floor",
-    contactMetroHint: "Near 'Abay' Metro Station (5 min walk)",
+    contactAddressVal: "Bekabad city, Tashkent Region, Uzbekistan",
+    contactMetroHint: "Convenient central location in Bekabad",
     contactPhoneLabel: "Direct Phone Line (Toll-Free)",
     contactHours: "Daily: 08:30 AM – 09:00 PM",
     contactEmailLabel: "Admissions Email",
@@ -413,7 +417,7 @@ const translations = {
     resultModalCloseBtn: "Close",
 
     // Footer
-    footerSubtitle: "Academic Educational Center",
+    footerSubtitle: "Educational Center in Bekabad",
     footerCopy: "© 2026 STANFORD Educational Center. All rights reserved.",
     footerPrivacy: "Privacy Policy",
     footerTerms: "Terms of Service",
@@ -423,6 +427,8 @@ const translations = {
   uz: {
     // Header & Navigation
     centerSubtitle: "O'quv markazi",
+    pageTitle: "STANFORD o'quv markazi Bekobod | Ingliz tili, IELTS, matematika va DTM kurslari",
+    pageDescription: "Bekoboddagi yetakchi STANFORD o'quv markazi. Ingliz tili, IELTS, tibbiyot uchun biologiya-kimyo va oliy o'quv yurtlariga kirish uchun matematika kurslari.",
     navHome: "Bosh sahifa",
     navAbout: "Biz haqimizda",
     navCourses: "Kurslar",
@@ -559,11 +565,11 @@ const translations = {
 
     // Contacts
     contactsBadge: "BIZ BILAN ALOQA",
-    contactsTitle: "Stanford manzili va <span class=\"text-gradient-orange\">aloqa</span>",
-    contactsDesc: "Sizni shaxsiy konsultatsiya va bilim darajasini aniqlash testiga taklif qilamiz.",
+    contactsTitle: "Bekoboddagi manzil va <span class=\"text-gradient-orange\">aloqa</span>",
+    contactsDesc: "Sizni Bekoboddagi Stanford o'quv markazimizda shaxsiy konsultatsiya va bilim darajasini aniqlash testiga taklif qilamiz.",
     contactAddressLabel: "O'quv markazi manzili",
-    contactAddressVal: "Olmaota shahri, Do'stlik shoh ko'chasi 89, 'Stanford Plaza' BM, 4-qavat",
-    contactMetroHint: "'Abay' metro bekati yaqinida (5 daqiqa piyoda)",
+    contactAddressVal: "Bekobod shahri, Toshkent viloyati, O'zbekiston",
+    contactMetroHint: "Bekobod markazida qulay joylashuv",
     contactPhoneLabel: "To'g'ridan-to'g'ri telefon (qo'ng'iroq bepul)",
     contactHours: "Har kuni: 08:30 – 21:00",
     contactEmailLabel: "Elektron pochta",
@@ -621,7 +627,7 @@ const translations = {
     resultModalCloseBtn: "Yopish",
 
     // Footer
-    footerSubtitle: "Akademik o'quv markazi",
+    footerSubtitle: "Bekoboddagi o'quv markazi",
     footerCopy: "© 2026 «STANFORD» o'quv markazi. Barcha huquqlar himoyalangan.",
     footerPrivacy: "Maxfiylik siyosati",
     footerTerms: "Ommaviy oferta",
