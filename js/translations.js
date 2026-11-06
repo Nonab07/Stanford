@@ -144,7 +144,7 @@ const translations = {
     // Contacts
     contactsBadge: "СВЯЗЬ С НАМИ",
     contactsTitle: "Контакты и локация <span class=\"text-gradient-orange\">Stanford</span>",
-    contactsDesc: "Приглашаем вас на персональную консультацию, тестирование текущего уровня и экскурсию по учебному центру.",
+    contactsDesc: "Приглашаем вас на персональную консультацию и тестирование текущего уровня.",
     contactAddressLabel: "Адрес учебного центра",
     contactAddressVal: "г. Алматы, проспект Достык 89, БЦ «Stanford Plaza», 4 этаж",
     contactMetroHint: "Рядом станция метро «Абая» (5 мин пешком)",
@@ -155,7 +155,7 @@ const translations = {
 
     // Form
     formTitle: "Быстрая запись на консультацию",
-    formSubtitle: "Оставьте контактные данные — мы перезвоним в течение 15 минут",
+    formSubtitle: "Оставьте контактные данные для связи",
     formNameLabel: "Ваше имя",
     formNamePlaceholder: "Например, Арман",
     formPhoneLabel: "Номер телефона",
@@ -170,7 +170,7 @@ const translations = {
     formSubmitBtn: "Записаться на бесплатный пробный урок",
     formConsent: "Нажимая кнопку, вы даете согласие на обработку персональных данных. Конфиденциальность гарантируется.",
     formSubmitting: "Отправка заявки...",
-    formSuccessToast: "Заявка успешно принята! Координатор Stanford свяжется с вами в течение 15 минут.",
+    formSuccessToast: "Заявка успешно принята! Координатор Stanford свяжется с вами в ближайшее время.",
     quickSuccessToast: "Спасибо за обращение! Наш менеджер перезвонит вам прямо сейчас.",
 
     // Modals
@@ -352,7 +352,7 @@ const translations = {
     // Contacts
     contactsBadge: "CONNECT WITH US",
     contactsTitle: "Contacts & Campus <span class=\"text-gradient-orange\">Location</span>",
-    contactsDesc: "We invite you for an in-person academic consultation, diagnostic placement evaluation, and campus walkthrough.",
+    contactsDesc: "We invite you for an academic consultation and diagnostic level assessment.",
     contactAddressLabel: "Campus Address",
     contactAddressVal: "Almaty, Dostyk Ave 89, 'Stanford Plaza' BC, 4th Floor",
     contactMetroHint: "Near 'Abay' Metro Station (5 min walk)",
@@ -363,7 +363,7 @@ const translations = {
 
     // Form
     formTitle: "Quick Consultation Booking",
-    formSubtitle: "Leave your contact info — our senior advisor will reach out within 15 minutes",
+    formSubtitle: "Leave your contact information — our advisor will reach out to you",
     formNameLabel: "Your Name",
     formNamePlaceholder: "e.g., Alexander",
     formPhoneLabel: "Phone Number",
@@ -378,7 +378,7 @@ const translations = {
     formSubmitBtn: "Book Free Trial Lesson",
     formConsent: "By submitting, you consent to the processing of personal data. Strict confidentiality is guaranteed.",
     formSubmitting: "Submitting request...",
-    formSuccessToast: "Application successfully submitted! A Stanford admissions advisor will call you within 15 minutes.",
+    formSuccessToast: "Application successfully submitted! A Stanford admissions advisor will contact you shortly.",
     quickSuccessToast: "Thank you for reaching out! Our team is dialing your number right now.",
 
     // Modals
@@ -560,7 +560,7 @@ const translations = {
     // Contacts
     contactsBadge: "BIZ BILAN ALOQA",
     contactsTitle: "Stanford manzili va <span class=\"text-gradient-orange\">aloqa</span>",
-    contactsDesc: "Sizni shaxsiy konsultatsiya, bilim darajasini bepul aniqlash testi va o'quv markazimiz bo'ylab ekskursiyaga taklif qilamiz.",
+    contactsDesc: "Sizni shaxsiy konsultatsiya va bilim darajasini aniqlash testiga taklif qilamiz.",
     contactAddressLabel: "O'quv markazi manzili",
     contactAddressVal: "Olmaota shahri, Do'stlik shoh ko'chasi 89, 'Stanford Plaza' BM, 4-qavat",
     contactMetroHint: "'Abay' metro bekati yaqinida (5 daqiqa piyoda)",
@@ -571,7 +571,7 @@ const translations = {
 
     // Form
     formTitle: "Konsultatsiyaga tezkor yozilish",
-    formSubtitle: "Kontaktlaringizni qoldiring — mutaxassisimiz 15 daqiqa ichida qo'ng'iroq qiladi",
+    formSubtitle: "Aloqa ma'lumotlaringizni qoldiring — mutaxassisimiz siz bilan bog'lanadi",
     formNameLabel: "Ismingiz",
     formNamePlaceholder: "Masalan, Jasur",
     formPhoneLabel: "Telefon raqamingiz",
@@ -586,7 +586,7 @@ const translations = {
     formSubmitBtn: "Bepul sinov darsiga yozilish",
     formConsent: "Tugmani bosish orqali siz shaxsiy ma'lumotlarni qayta ishlashga rozilik bildirasiz. Maxfiylik kafolatlanadi.",
     formSubmitting: "So'rov yuborilmoqda...",
-    formSuccessToast: "Arizangiz muvaffaqiyatli qabul qilindi! Stanford koordinatori 15 daqiqa ichida siz bilan bog'lanadi.",
+    formSuccessToast: "Arizangiz muvaffaqiyatli qabul qilindi! Stanford koordinatori tez orada siz bilan bog'lanadi.",
     quickSuccessToast: "Murojaatingiz uchun rahmat! Mutaxassisimiz hoziroq sizga qo'ng'iroq qiladi.",
 
     // Modals

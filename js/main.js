@@ -388,27 +388,33 @@ function setLanguage(lang) {
   updateLanguageUI(lang);
 }
 
-// --- THEME SWITCHER (LIGHT / DARK) ---
+// --- THEME SWITCHER (LIGHT / DARK) WITH SYSTEM THEME AUTO-DETECTION ---
 function getPreferredTheme() {
   const saved = localStorage.getItem("stanford_theme");
-  if (saved) return saved;
-  return "dark";
+  if (saved === "dark" || saved === "light") return saved;
+  // Automatically detect theme based on system preference
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  return "light";
 }
 
-function applyTheme(theme) {
+function applyTheme(theme, save = false) {
   const isDark = theme === "dark";
   if (isDark) {
     document.documentElement.classList.add("dark");
   } else {
     document.documentElement.classList.remove("dark");
   }
-  localStorage.setItem("stanford_theme", theme);
+  if (save) {
+    localStorage.setItem("stanford_theme", theme);
+  }
   updateThemeIcons(isDark);
 }
 
 function toggleTheme() {
   const isCurrentlyDark = document.documentElement.classList.contains("dark");
-  applyTheme(isCurrentlyDark ? "light" : "dark");
+  applyTheme(isCurrentlyDark ? "light" : "dark", true);
 }
 
 function updateThemeIcons(isDark) {
@@ -676,9 +682,18 @@ window.showToast = showToast;
 
 // --- INITIALIZE APPLICATION ---
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Initialize Theme from storage or preference
+  // 1. Initialize Theme from storage or system preference
   const currentTheme = getPreferredTheme();
-  applyTheme(currentTheme);
+  applyTheme(currentTheme, false);
+
+  // System Theme Listener (updates dynamically if user hasn't explicitly set a custom theme in storage)
+  if (window.matchMedia) {
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+      if (!localStorage.getItem("stanford_theme")) {
+        applyTheme(e.matches ? "dark" : "light", false);
+      }
+    });
+  }
 
   // 2. Initialize Language from storage or device system language (default to eng if not ru or uz)
   const initialLang = detectDefaultLanguage();
