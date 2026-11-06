@@ -746,13 +746,23 @@
         </div>
 
         <!-- Teachers Dynamic Cards Grid (Rendered by JS) -->
-        <div id="teachers-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[580px]">
+        <div id="teachers-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Loaded dynamically from js/main.js -->
         </div>
 
-        <!-- JS PAGINATION CONTROLS -->
-        <div class="mt-14 flex items-center justify-center gap-2.5" id="pagination-container">
-          <!-- Populated by JS: [Назад] [1] [2] [3] [Вперед] -->
+        <!-- "Показать еще" / Load More Button -->
+        <div class="mt-14 text-center" id="teachers-load-more-container">
+          <button 
+            type="button" 
+            id="teachers-load-more-btn"
+            onclick="loadMoreTeachers()"
+            class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-sm bg-white dark:bg-[#141414] text-neutral-900 dark:text-white border border-neutral-300 dark:border-neutral-800 hover:border-[#FF6B00] hover:text-[#FF6B00] dark:hover:text-[#FF6B00] shadow-sm hover:shadow-[0_0_25px_rgba(255,107,0,0.2)] active:scale-98 transition-all duration-300 cursor-pointer group"
+          >
+            <span data-i18n="teachersBtnLoadMore">Показать еще</span>
+            <svg class="w-4 h-4 text-[#FF6B00] transition-transform duration-300 group-hover:translate-y-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
         </div>
 
       </div>

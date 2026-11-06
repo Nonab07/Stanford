@@ -7,9 +7,9 @@
 // Current Language State
 let currentLang = "ru";
 
-// Pagination State
-let currentPage = 1;
-const itemsPerPage = 3;
+// Teachers State (Load More)
+let teachersVisibleCount = 3;
+const teachersStep = 3;
 
 // Helper: Escape HTML strings
 function escapeHtml(str) {
@@ -34,19 +34,19 @@ function getTeachersList() {
 }
 
 // Render Teacher Cards (Theme & Language responsive)
-function renderTeachers(page) {
+function renderTeachers() {
   const container = document.getElementById("teachers-cards-container");
   if (!container) return;
 
   const teachersList = getTeachersList();
-  const totalPages = Math.ceil(teachersList.length / itemsPerPage);
-  if (page > totalPages) page = totalPages || 1;
-  currentPage = page;
+  if (teachersVisibleCount > teachersList.length) {
+    teachersVisibleCount = teachersList.length;
+  }
+  if (teachersVisibleCount < 3 && teachersList.length >= 3) {
+    teachersVisibleCount = 3;
+  }
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const teachersToDisplay = teachersList.slice(startIndex, endIndex);
-
+  const teachersToDisplay = teachersList.slice(0, teachersVisibleCount);
   const t = (window.translations && window.translations[currentLang]) || window.translations.ru;
 
   container.innerHTML = teachersToDisplay.map((teacher, index) => {
@@ -65,7 +65,7 @@ function renderTeachers(page) {
     `).join("");
 
     return `
-      <div class="bg-white dark:bg-[#141414] rounded-2xl p-6 border border-neutral-200 dark:border-neutral-800 hover:border-[#FF6B00]/70 dark:hover:border-[#FF6B00]/60 transition-all duration-300 flex flex-col justify-between group hover:shadow-[0_12px_35px_-10px_rgba(255,107,0,0.22)] shadow-sm dark:shadow-none animate-fade-in" style="animation-delay: ${index * 80}ms">
+      <div class="bg-white dark:bg-[#141414] rounded-2xl p-6 border border-neutral-200 dark:border-neutral-800 hover:border-[#FF6B00]/70 dark:hover:border-[#FF6B00]/60 transition-all duration-300 flex flex-col justify-between group hover:shadow-[0_12px_35px_-10px_rgba(255,107,0,0.22)] shadow-sm dark:shadow-none animate-fade-in" style="animation-delay: ${(index % 3) * 80}ms">
         <div>
           <!-- Teacher Photo with Geometric Frame & Badge -->
           <div class="relative mb-5 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-800 group-hover:border-[#FF6B00]/40 transition-colors">
@@ -131,100 +131,41 @@ function renderTeachers(page) {
     `;
   }).join("");
 
-  updatePaginationUI();
+  updateTeachersControlsUI();
 }
 
-// Update Pagination Controls UI
-function updatePaginationUI() {
-  const container = document.getElementById("pagination-container");
-  if (!container) return;
-
+// Handler for "Показать еще" / Load More Teachers button
+function loadMoreTeachers() {
   const teachersList = getTeachersList();
-  const totalPages = Math.ceil(teachersList.length / itemsPerPage) || 1;
+  if (teachersVisibleCount < teachersList.length) {
+    teachersVisibleCount = Math.min(teachersVisibleCount + teachersStep, teachersList.length);
+    renderTeachers();
+  }
+}
+
+// Update Teachers Controls UI (Counter & Load More Button visibility)
+function updateTeachersControlsUI() {
+  const teachersList = getTeachersList();
+  const total = teachersList.length;
+  const shown = Math.min(teachersVisibleCount, total);
   const t = (window.translations && window.translations[currentLang]) || window.translations.ru;
 
-  let pagesHtml = "";
-
-  // Prev Button
-  const isPrevDisabled = currentPage === 1;
-  pagesHtml += `
-    <button 
-      type="button"
-      onclick="goToPage(${currentPage - 1})"
-      ${isPrevDisabled ? "disabled" : ""}
-      class="page-btn flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#141414] text-neutral-700 dark:text-neutral-300 shadow-xs dark:shadow-none ${isPrevDisabled ? "opacity-30 cursor-not-allowed" : "hover:border-[#FF6B00] hover:text-[#FF6B00] dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-[#1A1A1A] cursor-pointer"}"
-      aria-label="${escapeHtml(t.teachersBtnPrev)}"
-    >
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-      <span class="hidden sm:inline">${escapeHtml(t.teachersBtnPrev)}</span>
-    </button>
-  `;
-
-  // Page Numbers: 1, 2, 3
-  for (let i = 1; i <= totalPages; i++) {
-    const isActive = i === currentPage;
-    pagesHtml += `
-      <button 
-        type="button"
-        onclick="goToPage(${i})"
-        class="page-btn w-10 h-10 rounded-xl text-sm font-bold border transition-all cursor-pointer ${isActive ? "active bg-[#FF6B00] text-white border-[#FF6B00] shadow-[0_0_15px_rgba(255,107,0,0.5)]" : "border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#141414] text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:border-[#FF6B00] shadow-xs dark:shadow-none"}"
-        aria-label="Page ${i}"
-        aria-current="${isActive ? 'page' : 'false'}"
-      >
-        ${i}
-      </button>
-    `;
-  }
-
-  // Next Button
-  const isNextDisabled = currentPage === totalPages;
-  pagesHtml += `
-    <button 
-      type="button"
-      onclick="goToPage(${currentPage + 1})"
-      ${isNextDisabled ? "disabled" : ""}
-      class="page-btn flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold border border-neutral-300 dark:border-neutral-800 bg-white dark:bg-[#141414] text-neutral-700 dark:text-neutral-300 shadow-xs dark:shadow-none ${isNextDisabled ? "opacity-30 cursor-not-allowed" : "hover:border-[#FF6B00] hover:text-[#FF6B00] dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-[#1A1A1A] cursor-pointer"}"
-      aria-label="${escapeHtml(t.teachersBtnNext)}"
-    >
-      <span class="hidden sm:inline">${escapeHtml(t.teachersBtnNext)}</span>
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  `;
-
-  container.innerHTML = pagesHtml;
-
-  // Counter text
+  // Counter text (e.g. "Показано 3 из 9 преподавателей")
   const counterEl = document.getElementById("teachers-page-info");
   if (counterEl) {
-    const startNum = (currentPage - 1) * itemsPerPage + 1;
-    const endNum = Math.min(currentPage * itemsPerPage, teachersList.length);
-    counterEl.textContent = t.teachersPageInfo
-      .replace("{start}", startNum)
-      .replace("{end}", endNum)
-      .replace("{total}", teachersList.length)
-      .replace("{curr}", currentPage)
-      .replace("{max}", totalPages);
+    const textTemplate = t.teachersCountInfo || "Показано {shown} из {total} преподавателей";
+    counterEl.textContent = textTemplate
+      .replace("{shown}", shown)
+      .replace("{total}", total);
   }
-}
 
-// Navigation between pages
-function goToPage(page) {
-  const teachersList = getTeachersList();
-  const totalPages = Math.ceil(teachersList.length / itemsPerPage) || 1;
-  if (page < 1 || page > totalPages || page === currentPage) return;
-  currentPage = page;
-  renderTeachers(currentPage);
-  
-  // Smoothly scroll to teachers section if out of view
-  const section = document.getElementById("teachers");
-  if (section) {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < -50 || rect.top > 250) {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
+  // Load More Button visibility (hide when all teachers are displayed)
+  const loadMoreContainer = document.getElementById("teachers-load-more-container");
+  if (loadMoreContainer) {
+    if (shown >= total) {
+      loadMoreContainer.classList.add("hidden");
+    } else {
+      loadMoreContainer.classList.remove("hidden");
     }
   }
 }
@@ -443,7 +384,7 @@ function setLanguage(lang) {
   document.documentElement.setAttribute("lang", lang);
 
   applyTranslations(lang);
-  renderTeachers(currentPage);
+  renderTeachers();
   updateLanguageUI(lang);
 }
 
@@ -713,7 +654,7 @@ function setupPhoneMask(input) {
 
 // --- EXPOSE GLOBALS FOR INLINE ONCLICK HANDLERS ---
 window.renderTeachers = renderTeachers;
-window.goToPage = goToPage;
+window.loadMoreTeachers = loadMoreTeachers;
 window.openCertificateDetail = openCertificateDetail;
 window.openTeacherCertificate = openTeacherCertificate;
 window.openTeacherEnroll = openTeacherEnroll;
